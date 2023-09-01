@@ -1,13 +1,28 @@
 import express from 'express'
-import routes from './routes/appRoutes.js'
-import {run} from './mongoSetup/mongo_setup.js';
+import cors from 'cors'
+import routes from './routes/appRoutes.js';
+import { corsMiddleware } from './middleware/corsmiddleware.js';
+import { run } from './mongoSetup/mongo_setup.js';
+import multer from 'multer';
+import bodyParser from 'body-parser';
 
-run().catch(console.dir);
+var form = multer()
 
 
 
 const app = express()
 const port = 3000
+app.use(express.json({limit: '50mb'}))
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(cors({
+    origin: '*'
+}))
+app.options('/user', cors())
+app.use("/user", routes)
 
-app.use("/", routes)
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.use(corsMiddleware);
+
+app.listen(port, async() => {
+    await run().catch(console.dir);
+    console.log(`Example app listening on port ${port}!`)
+})

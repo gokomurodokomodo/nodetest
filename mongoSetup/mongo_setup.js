@@ -16,9 +16,8 @@ async function run() {
       // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
-    } finally {
-      // Ensures that the client will close when you finish/error
-        await client.close();
+    } catch(e){
+        console.log(e.toString())
     }
 }
 
@@ -39,4 +38,15 @@ async function insertManyToMongo(file, collection, option){
 }
 
 
-export {run, insertOneToMongo, insertManyToMongo}
+async function findOneInMongo(collection, value){
+    try {
+        collection.findOne({}, function(err,res){
+            if(err) console.log(err)
+            console.log(res)
+        })
+    } catch (error) {
+        console.log(err)
+    }
+}
+
+export {client, run, insertOneToMongo, insertManyToMongo, findOneInMongo}
