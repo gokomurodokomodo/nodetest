@@ -13,11 +13,11 @@ class UserController {
   async index(req, res) {
     try {
         console.log(req.query.name)
-        console.log(req.baseUrl)
         const database = client.db("love_app")
         const collection = database.collection("user")
-        const querry = { name : req.query.name}
+        const querry = { name : req.params.name}
         const result = await collection.findOne(querry)
+        console.log(result)
         var tempResponse = new BaseResponse()
         tempResponse.setData(result)
         res.json(tempResponse)

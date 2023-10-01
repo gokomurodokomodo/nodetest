@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@cluster0.7zaloi6.mongodb.net">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.49">
+    <root id="1">
+      <ServerVersion>6.0.10</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin"/>
+    <schema id="3" parent="1" name="local"/>
+    <schema id="4" parent="1" name="love_app">
+      <LocalIntrospectionTimestamp>2023-09-29.07:17:08</LocalIntrospectionTimestamp>
+    </schema>
+    <table id="5" parent="4" name="image"/>
+    <table id="6" parent="4" name="user"/>
+    <column id="7" parent="5" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="8" parent="5" name="contentType">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="9" parent="5" name="image">
+      <DasType>BinData|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="10" parent="5" name="name">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="11" parent="6" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="12" parent="6" name="displayName">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="13" parent="6" name="name">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="14" parent="6" name="avatarRoute">
+      <DasType>String|12s</DasType>
+      <Position>2</Position>
+    </column>
+  </database-model>
+</dataSource>

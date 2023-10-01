@@ -13,13 +13,13 @@ import ImageController from '../controller/imageController.js';
 const routes = new Router();
 
 
-routes.get('/get-user', cors(), UserController.index);
+routes.get('/get-user/:name', cors(), UserController.index);
 
 routes.post('/update_user',cors(), UserController.modify);
 
 routes.post('/upload_image', cors(), ImageController.store);
 
-routes.get('/get_image', cors(), ImageController.index);
+routes.get('/get_image/:name', cors(), ImageController.index);
 
 export default routes;
 
